@@ -17,7 +17,7 @@ contract QAWeekInEthereumNewsNFTScript is Script, ERC721Holder {
         WeekInEthereumNewsNFT token = new WeekInEthereumNewsNFT();
         //token.mint(address(this));
 
-        console.log(token.tokenURI(337));
+        console.log(token.tokenURI(0));
 
         vm.stopBroadcast();
     }

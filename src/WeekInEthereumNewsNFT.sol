@@ -393,12 +393,22 @@ contract WeekInEthereumNewsNFT is ERC721, ERC721Consecutive, Colours, Ownable {
 
     uint256 public totalSupply;
 
+    address constant andrew = 0x77737a65C296012C67F8c7f656d1Df81827c9541;
+    address constant evan = 0x059aE37646900CaA1680473d1280246AfCCC3114;
+
     constructor() ERC721("Week in Ethereum News", "WIEN") {
         totalSupply = issueDate.length;
-        _mintConsecutive(0x77737a65C296012C67F8c7f656d1Df81827c9541, uint96(totalSupply));
+        _mintConsecutive(evan, 245);
+        _mintConsecutive(andrew, 12); // Andrew first issue May 16, 2021
+        _mintConsecutive(evan, 1); // Evan vacation cover August 8, 2021
+        _mintConsecutive(andrew, 43);
+        _mintConsecutive(evan, 1); // Evan vacation cover June 11, 2022
+        _mintConsecutive(andrew, 30);
+        _mintConsecutive(evan, 1);
+        _mintConsecutive(andrew, 5); // Evan vacation cover January 14, 2023
     }
 
-    // TODO set date
+    // TODO support future dates
     function mint(address to) public onlyOwner {
         _mint(to, totalSupply);
 

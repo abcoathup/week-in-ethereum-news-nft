@@ -496,7 +496,7 @@ contract WeekInEthereumNewsOnchainSVGNFT is ERC721, ERC721Consecutive, Colours, 
     }
 
     function _generateColourId(uint256 tokenId) internal view returns (uint8) {
-        uint256 id = uint256(keccak256(abi.encodePacked("WiEN Colour", address(this), Strings.toString(tokenId))));
+        uint256 id = uint256(keccak256(abi.encodePacked("WiEN Colour", Strings.toString(tokenId))));
         return uint8(id % colours.length);
     }
 
@@ -537,24 +537,18 @@ contract WeekInEthereumNewsOnchainSVGNFT is ERC721, ERC721Consecutive, Colours, 
     function _generateSVG(uint256 tokenId) internal view returns (string memory) {
         // Based on AnchorCertificates
         // https://etherscan.io/address/0x600a4446094c341693c415e6743567b9bfc8a4a8#code#F1#L197
-        string memory colourValue = _generateColour(tokenId);
+        
+        (uint256 year, uint256 month, uint256 day) = BokkyPooBahsDateTimeLibrary.timestampToDate(issueDate[tokenId]);
 
         string memory svg = string.concat(
-            '<svg id="week-in-ethereum-news" width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" >'
-            '<rect x="28" y="28" width="444" height="444" rx="20" fill="',
-            colourValue,
-            '" fill-opacity=".80"/>'
-            '<path d="M28 355h444v97c0 11.046-8.954 20-20 20H48c-11.046 0-20-8.954-20-20v-97Z" fill="#000"/>'
-            '<g fill="none" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">'
-            '<path d="m236.975 58-1.857 6.309V247.37l1.857 1.853 84.975-50.229L236.975 58Z"/>'
-            '<path d="M236.975 58 152 198.994l84.975 50.229V58Zm0 207.312-1.046 1.275v65.211l1.046 3.055L322 215.109l-85.025 50.203Z"/>'
-            '<path d="M236.975 334.852v-69.541L152 215.108l84.975 119.744Zm-.001-85.629 84.974-50.228-84.974-38.624v88.852Zm-84.973-50.228 84.973 50.228v-88.852l-84.973 38.624Z"/>'
-            "</g>" '<g class="wienText">' '<text x="50" y="405" class="large">Week in Ethereum News</text>'
-            '<text x="50" y="435" class="medium">',
-            _generateIssueDate(tokenId),
-            "</text>"
-            "<style> .wienText {font-family: &quot;Courier New&quot;; fill:white;} .medium {font-size: 24px;} .large {font-size: 30px;} </style>"
-            "</g>" "</svg>"
+            '<svg id="week-in-ethereum-news" width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" >'
+            '<rect x="28" y="28" width="444" height="444" rx="20" fill="#454A75"/>'
+            '<path d="m64.496 411-.317 1.076v31.228l.317.316 14.495-8.568L64.496 411Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<path d="M64.496 411 50 435.052l14.496 8.568V411Zm0 35.365-.179.218v11.124l.179.521L79 437.801l-14.504 8.564Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<path d="M64.496 458.228v-11.863L50 437.801l14.496 20.427Zm0-14.608 14.495-8.568-14.495-6.589v15.157ZM50 435.052l14.496 8.568v-15.157L50 435.052Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<text fill="#fff" xml:space="preserve" style="white-space:pre" font-family="Calibri" font-size="36" letter-spacing="0em"><tspan x="88.195" y="444">Week in Ethereum News</tspan></text>'
+            '<text fill="#fff" xml:space="preserve" style="white-space:pre" font-family="Calibri" font-size="70" font-weight="300" letter-spacing="0em"><tspan x="47.009" y="232.76">', months[month - 1], " ", Strings.toString(day), ',</tspan><tspan x="177.989" y="302.76">', Strings.toString(year), '</tspan></text>'
+            "</svg>"
         );
 
         return svg;

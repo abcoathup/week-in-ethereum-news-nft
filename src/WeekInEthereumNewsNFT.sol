@@ -13,12 +13,13 @@ contract WeekInEthereumNewsNFT is ERC721, ERC721Consecutive, ERC721URIStorage, O
 
     uint256 public totalSupply;
 
-    string public baseURI = "ipfs://QmPoR29FC9ef4d73mQBb5GJjKfKW4WV1AVsdkAidjzpeLU/";
+    string public baseURI = "ipfs://QmaxQCfMM3DFew42L4svjxrXuRaZ13EbyqKD5nvoVXQ7Go/";
 
     address constant andrew = 0x77737a65C296012C67F8c7f656d1Df81827c9541;
     address constant evan = 0x059aE37646900CaA1680473d1280246AfCCC3114;
 
     constructor() ERC721("Week in Ethereum News", "WIEN") {
+        _transferOwnership(andrew);
         _mintConsecutive(evan, 245);
         _mintConsecutive(andrew, 12); // Andrew first issue May 16, 2021
         _mintConsecutive(evan, 1); // Evan vacation cover August 8, 2021
@@ -33,7 +34,6 @@ contract WeekInEthereumNewsNFT is ERC721, ERC721Consecutive, ERC721URIStorage, O
     function _baseURI() internal view override returns (string memory) {
         return baseURI;
     }
-
 
     function setBaseURI(string calldata newBaseURI) external onlyOwner {
         baseURI = newBaseURI;
@@ -71,16 +71,11 @@ contract WeekInEthereumNewsNFT is ERC721, ERC721Consecutive, ERC721URIStorage, O
         super._afterTokenTransfer(from, to, firstTokenId, batchSize);
     }
 
-        function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
     }
 }

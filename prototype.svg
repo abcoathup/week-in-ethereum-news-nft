@@ -1,0 +1,56 @@
+<svg id="week-in-ethereum-news" width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="28" y="28" width="444" height="444" rx="20" fill="#454A75"/>
+  <path d="m64.496 411-.317 1.076v31.228l.317.316 14.495-8.568L64.496 411Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64.496 411 50 435.052l14.496 8.568V411Zm0 35.365-.179.218v11.124l.179.521L79 437.801l-14.504 8.564Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64.496 458.228v-11.863L50 437.801l14.496 20.427Zm0-14.608 14.495-8.568-14.495-6.589v15.157ZM50 435.052l14.496 8.568v-15.157L50 435.052Z" stroke="#fff" stroke-width=".866" stroke-linecap="round" stroke-linejoin="round"/>
+  <text fill="#fff" xml:space="preserve" style="white-space:pre" font-family="Calibri" font-size="36" letter-spacing="0em"><tspan x="88.195" y="444">Week in Ethereum News</tspan></text>
+  <text fill="#fff" xml:space="preserve" style="white-space:pre" font-family="Calibri" font-size="70" font-weight="300" letter-spacing="0em"><tspan x="47.009" y="232.76">  February 18,</tspan><tspan x="177.989" y="302.76">2023</tspan></text>
+  <g class="wienText">
+    <text x="42" y="50" class="h2">Eth News and Links</text>
+    <text x="42" y="64" class="h3">Shapella (Shanghai + Capella) upgrade</text>
+    <text x="50" y="76" class="tiny">* Latest all core devs - execution (ACDE) call video. Notes from <tspan class="link">Tim Beiko</tspan> &amp; </text>
+    <text x="50" y="86" class="tiny">  <tspan class="link">Christine Kim</tspan>:</text>
+    <text x="50" y="96" class="tiny">  * Empty block handling bug found on Zhejiang testnet, since patched by Geth,</text>
+    <text x="50" y="106" class="tiny">    doesn’t impact Sepolia testnet upgrade timeline</text>
+    <text x="50" y="116" class="tiny">  * withdrawal-devnet-7: upgraded to Shapella with 600k validators and 360k BLS</text>
+    <text x="50" y="126" class="tiny">    changes, only stopped finalizing for 1 epoch in a harsher setup than mainnet</text>
+    <text x="50" y="136" class="tiny">  * withdrawal-mainnet-shadowfork-2 to test MEV-Boost</text>
+    <text x="50" y="146" class="tiny">  * 0 blob EIP4844 transactions banned for now</text>
+    <text x="50" y="156" class="tiny">  * Discussions on SSZ in block header, CL minimal presets (test configs),</text>
+    <text x="50" y="166" class="tiny">    standardizing transaction pool API and approach to deprecate SELFDESTRUCT</text>
+    <text x="50" y="176" class="tiny">* builder-specs <tspan class="link">v0.3.0</tspan>: add Capella support</text>
+    <text x="42" y="188" class="h3">Dencun (Cancun + Deneb) upgrade</text>
+    <text x="50" y="200" class="tiny">* KZG Ceremony:</text>
+    <text x="50" y="210" class="tiny">  * <tspan class="link">47,000+ contributors</tspan>, 4000+ in the lobby, 23 days left in first general</text>
+    <text x="50" y="220" class="tiny">    contribution period</text>
+    <text x="50" y="230" class="tiny">  * <tspan class="link">Coinbase</tspan> adds call to action to their products</text>
+    <text x="50" y="240" class="tiny">* Latest EIP4844 implementers <tspan class="link">call video</tspan>. Notes from <tspan class="link">Terence</tspan>: blobs to be</text>
+    <text x="50" y="250" class="tiny">  decoupled from blocks</text>
+    <text x="50" y="260" class="tiny">* SSZ breakout <tspan class="link">video call</tspan> : discussion on Union vs normalized transaction</text>
+    <text x="50" y="270" class="tiny">  representation, plan to prototype in next 2 weeks to decide approach to take</text>
+    <text x="42" y="282" class="h3">Layer 1</text>
+    <text x="50" y="294" class="tiny">* Visualization of <tspan class="link">MEV-boost block flow</tspan> from builder to validator via relayer</text>
+    <text x="50" y="306" class="tiny">* Flashbots: <tspan class="link">design for MEV-Share</tspan> , users send transactions to a matchmaker to</text>
+    <text x="50" y="316" class="tiny">  match with searchers who pay users for using their transactions</text>
+    <text x="42" y="328" class="h3">Client releases</text>
+    <text x="50" y="340" class="tiny">* Consensus layer:</text>
+    <text x="50" y="350" class="tiny">  * Lodestar <tspan class="link">v1.4.3</tspan>: Zhejiang testnet support, fix for dropping peers</text>
+    <text x="50" y="360" class="tiny">  * Prysm <tspan class="link">v3.2.1</tspan>: Capella upgrade for Sepolia testnet</text>
+    <text x="50" y="370" class="tiny">  * Teku <tspan class="link">v23.2.0</tspan>: early access to doppelganger detection and Capella upgrade</text>
+    <text x="50" y="380" class="tiny">    for Sepolia testnet</text>
+    <text x="50" y="390" class="tiny">* Execution layer:</text>
+    <text x="50" y="400" class="tiny">  * Besu <tspan class="link">v23.1.0</tspan>: : move to Java 17 LTS, performance improvements &amp; Bonsai</text>
+    <text x="50" y="410" class="tiny">    robustness</text>
+    <text x="50" y="420" class="tiny">  * Geth <tspan class="link">v1.11.0</tspan>: Shanghai upgrade support, added Pebble database as LevelDB</text>
+    <text x="50" y="430" class="tiny">    replacement (requires resync), removed puppeth &amp; mobile development</text>
+    <text x="50" y="440" class="tiny">    libraries and deprecated personal RPC namespace; <tspan class="link">v1.11.1</tspan>: patch for </text>
+    <text x="50" y="450" class="tiny">    empty block processing in Shanghai upgrade</text>
+    <style>
+      .wienText {font-family: &quot;Courier New&quot;; fill:white; opacity: .15;} 
+      .h2 {font-size: 12px; }
+      .h3 {font-size: 10px;}
+      .tiny {font-size: 8px;}
+      .link {text-decoration: underline;}
+    </style>
+  </g>
+</svg>
